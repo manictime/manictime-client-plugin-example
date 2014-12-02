@@ -9,7 +9,7 @@ namespace TagPlugins.Example
     {
         public static string GetDefaultBase()
         {
-              return "http://localhost:61365/sampleData/PluginExample/ActivitiesAndGroups/";
+              return "http://localhost:61365/sampleData/PluginExample/TagSource/";
         }
     }
 }

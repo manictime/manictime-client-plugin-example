@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Finkit.ManicTime.Common.TagSources;
+﻿using Finkit.ManicTime.Common.TagSources;
 using Machine.Specifications;
 
 namespace TagPlugins.Example.Specs
