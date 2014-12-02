@@ -25,7 +25,7 @@ namespace TimelinePlugins.Example.Specs
         private It should_return_response = () =>
         {
             _response.ShouldNotBeNull();
-            
+            ;
         };
 
 

@@ -4,6 +4,6 @@
     "Type": "Timeline",
     "AssemblyName": "TimelinePlugins.Example.dll",
     "Name": "Timeline: Manictime timeline plugin example",
-    "Description": "Show data from Example source on its own timeline",
+    "Description": "Show data from custom source on its own timeline",
     "HelpUrl":  "http://HereIsUrlForPluginHelp"
 }
