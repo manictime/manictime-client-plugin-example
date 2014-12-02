@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelinePlugins.Example", "TimelinePlugins.Example\TimelinePlugins.Example.csproj", "{6C7F1F04-2613-4538-AA39-3F9316A930D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagPlugins.Example", "TagPlugins.Example\TagPlugins.Example.csproj", "{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelinePlugins.Example.Specs", "TimelinePlugins.Example.Specs\TimelinePlugins.Example.Specs.csproj", "{BCACF801-1A62-46B1-99B4-F90C5019F46C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ManicTimeDlls", "ManicTimeDlls", "{E6783A73-B4DB-4BA0-94B4-B16778ACA839}"
+	ProjectSection(SolutionItems) = preProject
+		ManicTimeDlls\Finkit.ManicTime.Client.dll = ManicTimeDlls\Finkit.ManicTime.Client.dll
+		ManicTimeDlls\Finkit.ManicTime.Common.dll = ManicTimeDlls\Finkit.ManicTime.Common.dll
+		ManicTimeDlls\Finkit.ManicTime.Shared.dll = ManicTimeDlls\Finkit.ManicTime.Shared.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCACF801-1A62-46B1-99B4-F90C5019F46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCACF801-1A62-46B1-99B4-F90C5019F46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCACF801-1A62-46B1-99B4-F90C5019F46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCACF801-1A62-46B1-99B4-F90C5019F46C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

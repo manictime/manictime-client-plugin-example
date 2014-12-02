@@ -1,0 +1,9 @@
+﻿{
+    "Id": "TimelinePlugins.Example",
+    "Version": "3.1.4.0",
+    "Type": "Timeline",
+    "AssemblyName": "TimelinePlugins.Example.dll",
+    "Name": "Timeline: Manictime timeline plugin example",
+    "Description": "Show data from Example source on its own timeline",
+    "HelpUrl":  "http://HereIsUrlForPluginHelp"
+}
