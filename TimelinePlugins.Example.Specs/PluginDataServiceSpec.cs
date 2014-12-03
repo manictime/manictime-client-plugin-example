@@ -1,7 +1,7 @@
 ﻿using System;
 using Machine.Specifications;
 using TimelinePlugins.Example.DataSourceDto;
-
+// ReSharper disable  UnusedMember.Local
 namespace TimelinePlugins.Example.Specs
 {
     
