@@ -1,12 +1,13 @@
 ﻿using Finkit.ManicTime.Common.TagSources;
 using Machine.Specifications;
-
+// ReSharper disable  UnusedMember.Local
 namespace TagPlugins.Example.Specs
 {
     public class when_getting_data_from_tag_source
     {
         private static ExampleTagSourceDataProvider _exampleTagSourceDataProvider;
         private static TagSourceItem[] tags;
+
         private Establish context = () =>
         {
             _exampleTagSourceDataProvider = new ExampleTagSourceDataProvider(ExampleTagSourceUriProvider.GetDefaultBase());

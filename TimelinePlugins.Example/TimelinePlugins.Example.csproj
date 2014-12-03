@@ -114,19 +114,21 @@
     <Compile Include="Wizard\AddPluginTimelineViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TagPlugins.Example\TagPlugins.Example.csproj">
-      <Project>{f8a1c2cb-9bb8-4905-8b00-f2b3b2246e29}</Project>
-      <Name>TagPlugins.Example</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Resource Include="Images\SourceImage.png" />
-    <Resource Include="PluginIcon.png" />
+    <None Include="PluginIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AfterBuild.bat" />
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="PluginSpec.json" />
+    <None Include="PluginSpec.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Wizard\AddPluginTimelineView.xaml">
@@ -142,6 +144,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)AfterBuild.bat</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
