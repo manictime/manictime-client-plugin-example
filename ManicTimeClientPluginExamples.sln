@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ManicTimeDlls", "ManicTimeD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagPlugins.Example.Specs", "TagPlugins.Example.Specs\TagPlugins.Example.Specs.csproj", "{82C659EA-9F99-430B-82E7-575FC85BB652}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{C3DB2EF4-04BE-4D13-8F38-F871ACD9CF7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,5 +47,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C7F1F04-2613-4538-AA39-3F9316A930D7} = {83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}
+		{F8A1C2CB-9BB8-4905-8B00-F2B3B2246E29} = {83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}
+		{BCACF801-1A62-46B1-99B4-F90C5019F46C} = {C3DB2EF4-04BE-4D13-8F38-F871ACD9CF7D}
+		{82C659EA-9F99-430B-82E7-575FC85BB652} = {C3DB2EF4-04BE-4D13-8F38-F871ACD9CF7D}
 	EndGlobalSection
 EndGlobal

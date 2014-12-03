@@ -22,6 +22,22 @@ namespace TagPlugins.Example.Views
             }
         }
 
+        private string _lastSync;
+        public string LastSync
+        {
+            get 
+            {
+                return _lastSync;
+            }
+            set
+            {
+                if (_lastSync == value)
+                    return;
+                _lastSync = value;
+                OnPropertyChanged("LastSync");
+            }
+        }
+
         private Exception _error;
         public Exception Error
         {
@@ -41,10 +57,11 @@ namespace TagPlugins.Example.Views
 
         public override void Initialize(ITagSourceSettings settings)
         {
-            Settings = settings ?? new TagSourceSettings();
-            SourceUrl = ((TagSourceSettings) Settings).SourceUrl;
+            Settings = settings ?? new ExampleTagSourceSettings();
+            SourceUrl = ((ExampleTagSourceSettings) Settings).SourceUrl;
+            LastSync = ((ExampleTagSourceSettings) Settings).LastSync ?? "Never.";
             if (string.IsNullOrEmpty(SourceUrl))
-                SourceUrl = TagSourceUriProvider.GetDefaultBase();
+                SourceUrl = ExampleTagSourceUriProvider.GetDefaultBase();
         }
 
         public override Task<bool> BeforeOk()
@@ -55,7 +72,7 @@ namespace TagPlugins.Example.Views
 
         public override Task OnOk()
         {
-            var settings = (TagSourceSettings) Settings;
+            var settings = (ExampleTagSourceSettings) Settings;
             settings.SourceUrl = SourceUrl;
             return TaskEx.FromResult(true);
         }

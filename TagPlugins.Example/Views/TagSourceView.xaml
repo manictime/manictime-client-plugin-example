@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock  Text="Url" Margin="0 5 0 5"  HorizontalAlignment="Left"></TextBlock>
+        <TextBox Grid.Column="1" Margin="0 5 0 5" Text="{Binding SourceUrl}" HorizontalAlignment="Stretch"></TextBox>
+
+        <TextBlock Grid.Row="1" Margin="0 5 0 5" Text="Last sync" HorizontalAlignment="Left"></TextBlock>
+        <TextBlock Grid.Row="1" Margin="0 5 0 5" Grid.Column="1"  Text="{Binding LastSync}" HorizontalAlignment="Left"></TextBlock>
     </Grid>
 </Views:ViewControl>

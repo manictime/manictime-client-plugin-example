@@ -4,16 +4,16 @@ using TagPlugins.Example.Views;
 
 namespace TagPlugins.Example
 {
-    public class TagPluginCommand : PluginCommand
+    public class ExampleTagPluginCommand : PluginCommand
     {
-        public TagPluginCommand()
+        public ExampleTagPluginCommand()
         {
             CanExecute = true;
         }
        
         public override string Name
         {
-            get { return "Sync"; }
+            get { return "Sync tags"; }
         }
 
         public override void Execute()

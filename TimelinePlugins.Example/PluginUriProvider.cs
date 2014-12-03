@@ -1,5 +1,4 @@
 ﻿using System;
-using Finkit.ManicTime.Shared;
 
 namespace TimelinePlugins.Example
 {

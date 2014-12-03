@@ -2,8 +2,9 @@
 
 namespace TagPlugins.Example
 {
-    public class TagSourceSettings : ITagSourceSettings
+    public class ExampleTagSourceSettings : ITagSourceSettings
     {
         public string SourceUrl { get; set; }
+        public string LastSync { get; set; }
     }
 }

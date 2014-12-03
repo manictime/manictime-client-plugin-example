@@ -6,8 +6,21 @@
              xmlns:Views="clr-namespace:Finkit.ManicTime.Client.Main.Views;assembly=Finkit.ManicTime.Client"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Button Content="Sync" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Button Content="Sync" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding SyncCommand}" IsEnabled="{Binding IsSyncEnabled}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="Last sync: "/>
+            <TextBlock Text="{Binding LastSync}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Text="{Binding SyncResponse}"></TextBlock>
+        <TextBlock Grid.Row="3" Foreground="Red" Text="{Binding Error.Message}"></TextBlock>
+        
     </Grid>
 </Views:ViewControl>
                

@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Net.Http;
+﻿using System;
 using Machine.Specifications;
 using TimelinePlugins.Example.DataSourceDto;
 
@@ -22,12 +20,6 @@ namespace TimelinePlugins.Example.Specs
             _response = _pluginDataService.GetExampleDataAsync(DateTime.Now).Result;
         };
 
-        private It should_return_response = () =>
-        {
-            _response.ShouldNotBeNull();
-            ;
-        };
-
-
+        private It should_return_response = () => _response.ShouldNotBeNull();
     }
 }
