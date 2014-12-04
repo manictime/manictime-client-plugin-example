@@ -21,7 +21,8 @@ How to use
 Once it builds, open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
 Copy folder into %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\ and restart ManicTime.
 
-Using the plugins:
+Using the plugins
+-----------------
 
 ###For ManicTime timeline plugins:
  1. Open ManicTime
