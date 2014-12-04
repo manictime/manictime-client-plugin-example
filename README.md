@@ -3,7 +3,7 @@ manictime-client-plugin-example
 
 This is example of how to create custom ManicTime client plugins. ManicTime client supports two different types of plugins, Timeline plugin and Tag source plugin.
 
-<b>Timeline plugin</b> provides data and functionality that is presented in ManicTime as a new Timeline.
+<b>Timeline plugin</b> provides data and functionality presented in ManicTime as a new Timeline.
 
 <picture of timeline>
 
