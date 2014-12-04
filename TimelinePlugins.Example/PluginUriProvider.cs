@@ -6,8 +6,8 @@ namespace TimelinePlugins.Example
     {
         public static string GetDefaultBase()
         {
-            //return "http://www.manictime.com/sampleData/PluginExample/ActivitiesAndGroups/";
-            return "http://localhost:61365/sampleData/PluginExample/ActivitiesAndGroups/";
+            return "http://www.manictime.com/sampleData/PluginExample/ActivitiesAndGroups/";
+            //return "http://localhost:61365/sampleData/PluginExample/ActivitiesAndGroups/";
         }
 
         public static string GetWithParameters(DateTimeOffset fromTime, string baseUri = null)

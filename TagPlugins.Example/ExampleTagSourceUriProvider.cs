@@ -4,7 +4,8 @@
     {
         public static string GetDefaultBase()
         {
-              return "http://localhost:61365/sampleData/PluginExample";
+              //return "http://localhost:61365/sampleData/PluginExample";
+            return "http://www.manictime.com/sampleData/PluginExample";
         }
 
         public static string GetTagSourceUrl(string baseUrl = null)
