@@ -1,56 +1,44 @@
 manictime-client-plugin-example
 ===============================
 
-This is example of how to create custom ManicTime client plugins. ManicTime client supports two different types of plugins, Timeline plugin and Tag source plugin.
+An example of how to create custom ManicTime client plugins. ManicTime client supports two different types of plugins, Timeline plugin and Tag source plugin.
 
-<b>Timeline plugin</b> provides data and functionality presented in ManicTime as a new Timeline.
+**Timeline plugin** can show data in ManicTime as a new timeline. Similar plugins shipped with ManicTime are Outlook calendar timeline, Google calendar timeline...
 
-<picture of timeline>
-
-<b>Tag source plugin</b> provides custom tags for tagging functionality in Manictime. This plugin also supports custom user commands.
-
-<picture of tag source>
+**Tag source plugin** can import tags to ManicTime which you can then use for tagging. You can then also push created tags back to your system. This us useful if for example you have a system with project and tasks, to which you enter your work hours. You can present projects and tasks as tags in ManicTime, tag your work hours in ManicTime, then send these tags back to your system as work hours. Similar plugin shipped with ManicTime is Jira plugin.
 
 How to run
 ----------
-To run you need Visual studio 2013. 
+Open in Visual studio 2013 and run. Plugins need to be written for .Net 4.0 Client profile.
 
 How to use
 ----------
-Open solution. Build. Run tests. 
-After build open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
-Copy folder with content into %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\ and restart ManicTime client application.
+ 1. Open solution. 
+ 2. Build. 
+ 3. Run tests. 
+ 
+ 
+Once it builds, open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
+Copy folder into %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\ and restart ManicTime.
 
-Now let's configure example plugins in Manictime client
+Using the plugins:
 
-####For ManicTime timeline plugins:
-1. Open ManicTime client application.
-2. Open Timeline editor with click on a Gear button above current timelines.
-3. Now click on Add timeline button
-4. List of displayed timeline plugins should contain "Timeline plugin example"
-5. Select it and complete the wizard
-6. Timeline plugin example should now be added to current timelines
+###For ManicTime timeline plugins:
+ 1. Open ManicTime
+ 2. Open Timeline editor (click on a Gear button above timelines)
+ 3. Click on Add timeline button
+ 4. Choose "Timeline plugin example"
+ 5. Select it and complete the wizard
+ 6. Timeline plugin example should now be added
 
-####For Tag source plugins:
-1. Open ManicTime client application
-2. Open TagEditor on Tags timeline by clicking on dropdown button
-3. Select Tag source tab and click on Add
-4. Select Tag source example from list and click OK
-5. Complete the wizard
-6. Try add new tag. Tags provided by Tag source plugin should now be available.
-7. To execute custom command click Puzzle button and then click on custom menu command in Tag source example menu item
-
-
-
-
-
-
-
-
-
-
-
-
-
+###For Tag source plugins:
+ 1. Open ManicTime
+ 2. Open TagEditor on Tags timeline by clicking on dropdown button
+ 3. Select Tag source tab and click on Add
+ 4. Select Tag source example from list and click OK
+ 5. Complete the wizard
+ 6. Try adding a new tag. Tags provided by Tag source plugin should now be available.
+ 7. Custom commands for the plugin are available in Plugins menu (Puzzle icon next to the Settings). You can use this command to send data back to your system
+ 
 
  
