@@ -18,7 +18,7 @@ To run you need Visual studio 2013.
 How to use
 ----------
 Open solution. Modify. Build. Run tests. 
-After build, open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
+After build open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
 Copy folder with content into %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\ and restart ManicTime client application.
 
 Now let's configure example plugins in Manictime client
@@ -38,7 +38,7 @@ Now let's configure example plugins in Manictime client
 4. Select Tag source example from list and click OK
 5. Complete the wizard
 6. Try add new tag. Tags provided by Tag source plugin should now be available.
-7. To execute custom command, click Puzzle button and then click on custom menu command in Tag source example menu item
+7. To execute custom command click Puzzle button and then click on custom menu command in Tag source example menu item
 
 
 
