@@ -17,7 +17,7 @@ To run you need Visual studio 2013.
 
 How to use
 ----------
-Open solution. Modify. Build. Run tests. 
+Open solution. Build. Run tests. 
 After build open bin\debug folder of plugin project (Timeline or Tag source). There should be folder with the name of plugin.
 Copy folder with content into %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\ and restart ManicTime client application.
 
