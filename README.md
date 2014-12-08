@@ -7,7 +7,7 @@ An example of how to create custom ManicTime client plugins. ManicTime client su
 Timeline plugin can show data in ManicTime as a new timeline. Similar plugins shipped with ManicTime are Outlook calendar timeline, Google calendar timeline...
 
 ###Tag source plugin
-Tag source plugin can import tags to ManicTime which you can then use for tagging. You can then also push created tags back to your system. This us useful if for example you have a system with project and tasks, into which you enter your work hours. You can present projects and tasks as tags in ManicTime, tag your work hours in ManicTime, then send these tags back to your system as work hours. Similar plugin shipped with ManicTime is Jira plugin.
+Tag source plugin can import tags to ManicTime which you can then use for tagging. You can then also push created tags back to your system. This is useful if for example you have a system with project and tasks, into which you enter your work hours. You can present projects and tasks as tags in ManicTime, tag your work hours in ManicTime, then send these tags back to your system as work hours. Similar plugin shipped with ManicTime is Jira plugin.
 
 How to run
 ----------
