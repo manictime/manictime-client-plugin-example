@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="TagPlugin.TemplateSettings.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Finkit.ManicTime.Client.Controls;assembly=Finkit.ManicTime.Client"
+             Height="Auto">
+    <Grid>
+        <!-- if you need any data when making a new connection you can insert the fields here -->
+    </Grid>
+</UserControl>

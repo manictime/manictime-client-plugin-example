@@ -1,1 +1,0 @@
-﻿Copy this folder to %userprofile%\AppData\Local\Finkit\ManicTime\Plugins\Packages\
