@@ -67,8 +67,6 @@
     <Compile Include="DataSourceDto\ActivityDto.cs" />
     <Compile Include="DataSourceDto\GroupDto.cs" />
     <Compile Include="DataSourceDto\TimelinePluginExampleDto.cs" />
-    <Compile Include="PluginUriProvider.cs" />
-    <Compile Include="PluginDataService.cs" />
     <Compile Include="PluginDayViewLoader.cs" />
     <Compile Include="PluginImporter.cs" />
     <Compile Include="PluginLoader.cs" />

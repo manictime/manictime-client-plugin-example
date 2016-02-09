@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Finkit.ManicTime.Common.ActivityTimelines.Timelines;
 using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Plugins.Groups;
 using Finkit.ManicTime.Shared.Helpers;
@@ -11,28 +10,22 @@ namespace TimelinePlugins.Example
     public static class PluginImporter
     {
         public static Activity[] GetData(PluginTimeline timeline, Func<Group> createGroup,
-         Func<Activity> createActivity, DateTime fromLocalTime, DateTime toLocalTime,
-            ITimelineRepository timelineRepository, PluginDataService pluginDataService)
+            Func<Activity> createActivity, DateTime fromLocalTime, DateTime toLocalTime)
         {
+            /*
+                get activities from your source for time range fromLocalTime-toLocalTime
+                then create Activity objects and return the collection.
 
+                Here we create only one activity spanning the whole day.
+            */
             try
             {
-                //get current data in plugin if needed
-                //var currrentData = timeline.Response == null
-                //    ? null
-                //    : JsonConvert.DeserializeObject<TimelinePluginExampleDto>(timeline.Response);
+                var groupOne = CreateGroup("1-group", "Group One", "ff0000", createGroup);
 
-                var response =  pluginDataService.GetExampleDataAsync(fromLocalTime).Result;
-                var groups = response.Groups.Select(groupDto => CreateGroup(groupDto.GroupId, groupDto.DisplayName, groupDto.Color, createGroup));
-                var activities =
-                    response.Activities.Select(activityDto => CreateActivity(activityDto.Id, activityDto.StartTime, activityDto.EndTime,
-                                activityDto.DisplayName,groups.Single(g => g.SourceId == activityDto.GroupId), createActivity));
-
-                //save response data to plugin repository if needed (caching...)
-                //timeline.Response = JsonConvert.SerializeObject(response);
-                //timelineRepository.Save(timeline);
-
-                return activities.ToArray();
+                return new Activity[]
+                {
+                    CreateActivity("1-activity", fromLocalTime, toLocalTime, "Sample activity", groupOne, createActivity)
+                };
             }
             catch (Exception ex)
             {
@@ -41,7 +34,7 @@ namespace TimelinePlugins.Example
             }
         }
 
-        private static Group CreateGroup(string id, string displayName,string color,  Func<Group> createGroup)
+        private static Group CreateGroup(string id, string displayName, string color, Func<Group> createGroup)
         {
             var group = createGroup();
             group.Color = color.ToRgb();

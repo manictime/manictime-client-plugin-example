@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Finkit.ManicTime.Client.Views.DayView;
-using Finkit.ManicTime.Common.ActivityTimelines.Timelines;
 using Finkit.ManicTime.Plugins;
 using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Plugins.Folders;
@@ -15,16 +14,11 @@ namespace TimelinePlugins.Example
     public class PluginDayViewLoader : IDayViewLoader
     {
         private readonly ITimelineEntityFactory _timelineEntityFactory;
-        private readonly ITimelineRepository _timelineRepository;
-        private readonly PluginDataService _pluginDataService;
 
 
-        public PluginDayViewLoader(ITimelineEntityFactory timelineEntityFactory,
-            ITimelineRepository timelineRepository, PluginDataService pluginDataService)
+        public PluginDayViewLoader(ITimelineEntityFactory timelineEntityFactory)
         {
             _timelineEntityFactory = timelineEntityFactory;
-            _timelineRepository = timelineRepository;
-            _pluginDataService = pluginDataService;
         }
 
         public void BeginLoad(Dictionary<Timeline, object> timelinesWithTimestamps, DateTime fromLocalTime,
@@ -43,7 +37,7 @@ namespace TimelinePlugins.Example
                                     t => new DayViewLoadResult(PluginImporter.GetData((PluginTimeline) t,
                                         () => _timelineEntityFactory.Create<Group>(timeline),
                                         () => _timelineEntityFactory.Create<Activity>(timeline),
-                                        fromLocalTime, toLocalTime, _timelineRepository, _pluginDataService),
+                                        fromLocalTime, toLocalTime),
                                         new Folder[] {},
                                         null)),
                                 null);

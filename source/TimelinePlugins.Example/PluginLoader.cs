@@ -19,15 +19,10 @@ namespace TimelinePlugins.Example
         public const string TimelineTypeName = "ManicTime/ExamplePluginTimeline";
         private const string DefaultDisplayName = "Timeline plugin example";
 
-        public PluginLoader(PluginContext pluginContext, IServiceRegistry serviceRegistry,
+        public PluginLoader(PluginContext pluginContext,
             ITimelineTypeRegistry timelineTypeRegistry, ISourceTypeRegistry sourceTypeRegistry,
             IObjectBuilder objectBuilder, IServiceLocator serviceLocator)
         {
-
-            //register our data service with ManicTime IoC
-            serviceRegistry.RegisterInstance<PluginDataService>();
-
-
             var timelineType = new TimelineType(pluginContext.Spec, TimelineTypeName, () => DefaultDisplayName)
                 .WithAllowMultipleInstances(true);
 
