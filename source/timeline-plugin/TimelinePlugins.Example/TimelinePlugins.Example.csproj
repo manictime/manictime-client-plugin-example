@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\installable-plugin\Plugins\Packages\TimelinePlugins.Example\Lib\</OutputPath>
+    <OutputPath>..\..\..\installable-plugin\Plugins\Packages\TimelinePlugins.Example\Lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,13 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Finkit.ManicTime.Client">
-      <HintPath>..\..\libs\Finkit.ManicTime.Client.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Client.dll</HintPath>
     </Reference>
     <Reference Include="Finkit.ManicTime.Common">
-      <HintPath>..\..\libs\Finkit.ManicTime.Common.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Common.dll</HintPath>
     </Reference>
     <Reference Include="Finkit.ManicTime.Shared">
-      <HintPath>..\..\libs\Finkit.ManicTime.Shared.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -61,6 +61,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TagPlugins.Core">
+      <HintPath>..\..\..\libs\TagPlugins.Core.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>

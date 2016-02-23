@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\installable-plugin\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\Lib\</OutputPath>
+    <OutputPath>..\..\..\installable-plugin\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\Lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,13 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Finkit.ManicTime.Client">
-      <HintPath>..\..\libs\Finkit.ManicTime.Client.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Client.dll</HintPath>
     </Reference>
     <Reference Include="Finkit.ManicTime.Common">
-      <HintPath>..\..\libs\Finkit.ManicTime.Common.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Common.dll</HintPath>
     </Reference>
     <Reference Include="Finkit.ManicTime.Shared">
-      <HintPath>..\..\libs\Finkit.ManicTime.Shared.dll</HintPath>
+      <HintPath>..\..\..\libs\Finkit.ManicTime.Shared.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -46,7 +46,7 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="TagPlugins.Core">
-      <HintPath>..\..\libs\TagPlugins.Core.dll</HintPath>
+      <HintPath>..\..\..\libs\TagPlugins.Core.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

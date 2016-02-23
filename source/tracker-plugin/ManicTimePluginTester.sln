@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManicTimePluginTester", "ManicTimePluginTester\ManicTimePluginTester.csproj", "{81547BB1-48BF-45EA-83B7-F2678DB66752}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Notepad", "Plugins.Notepad\Plugins.Notepad.csproj", "{2B5CEAE9-313F-440C-9213-C67CEDC898B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Outlook", "Plugins.Outlook\Plugins.Outlook.csproj", "{0D82CADE-7540-4B71-A0C8-C8629D004E46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Debug|x86.ActiveCfg = Debug|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Debug|x86.Build.0 = Debug|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Release|Any CPU.ActiveCfg = Release|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Release|Mixed Platforms.Build.0 = Release|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Release|x86.ActiveCfg = Release|x86
+		{81547BB1-48BF-45EA-83B7-F2678DB66752}.Release|x86.Build.0 = Release|x86
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2B5CEAE9-313F-440C-9213-C67CEDC898B6}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0D82CADE-7540-4B71-A0C8-C8629D004E46}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
