@@ -1,7 +1,10 @@
 Client plugins for ManicTime
 ===============================
 
-An example of how to create custom ManicTime client plugins. ManicTime client supports two different types of plugins, Tag source plugin and Timeline plugin.
+An example of how to create custom ManicTime client plugins. ManicTime client supports three different types of plugins: 
+-Tag source plugin
+-Timeline plugin
+-Tracker plugin
 
 Tag Plugin
 ====================
@@ -21,7 +24,7 @@ This will return a collection of TagActivity objects which you can then export t
 How to use
 ----------
 
-1. Compile the project.
+1. Compile the project (source/tracker-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
 4. Copy folder installable-plugin/Plugin to database folder, so that in the database folder it looks like
@@ -53,7 +56,7 @@ Timeline plugin can show data in ManicTime as a new timeline. Similar plugins sh
 How to use
 ----------
 
-1. Compile the project.
+1. Compile the project (source/timeline-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
 4. Copy folder installable-plugin/Plugin to database folder, so that in the database folder it looks like
@@ -75,3 +78,24 @@ How to use
  6. Timeline plugin example should now be added
 
    ![Timeline on day view](http://manictimecdn.blob.core.windows.net/images/github/timeline-plugin-day-view.png)
+
+
+Tracker plugin
+===============
+
+Tracker plugin fills Documents timeline. When ManicTime detects an application, it gets the general data like process name, window title... Some applications also contain other data like URLs, open files, email sender... To get this extra data, ManicTime relies on plugins. When an application is detected, ManicTime will go through a list of plugins and try to get more data. We provide plugins for popular applications, like MS Office products and browsers, but you can write the plugin for any app you use.
+
+In the sample we included two plugins, Notepad plugin and Outlook plugin. We suggest you take a look at Notepad plugin, it is simpler to understand. The important code is in file NotepadFileRetreiver.cs. 
+You don't need to look at PluginTester project, its there to help you debug your plugin. If you will create your own plugin (not modify an existing one), add it to the list of plugins in file TrackActiveApplication.cs.
+
+How to use
+----------
+
+1. Compile the project (source/tracker-plugin).
+2. After you compile it, there should be a folder in repository root - installable-plugin
+3. Go to ManicTime, Settings -> Advanced -> Open db folder
+4. Copy folder installable-plugin/Plugin to database folder, so that in the database folder it looks like
+....\db folder\Plugins\Packages\ManicTime.DocumentTracker.Notepad\...
+5. Run ManicTime
+
+If it works ok, data should be visible on [Documents timeline!](http://support.manictime.com/knowledgebase/articles/686226-document-timeline), when you use the application you wrote the plugin for.
