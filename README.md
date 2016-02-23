@@ -2,9 +2,9 @@ Client plugins for ManicTime
 ===============================
 
 An example of how to create custom ManicTime client plugins. ManicTime client supports three different types of plugins: 
--Tag source plugin
--Timeline plugin
--Tracker plugin
+- Tag source plugin
+- Timeline plugin
+- Tracker plugin
 
 Tag Plugin
 ====================
