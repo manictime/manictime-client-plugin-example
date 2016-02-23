@@ -98,4 +98,4 @@ How to use
 ....\db folder\Plugins\Packages\ManicTime.DocumentTracker.Notepad\...
 5. Run ManicTime
 
-If it works ok, data should be visible on [Documents timeline!](http://support.manictime.com/knowledgebase/articles/686226-document-timeline), when you use the application you wrote the plugin for.
+If it works ok, data should be visible on [Documents timeline](http://support.manictime.com/knowledgebase/articles/686226-document-timeline), when you use the application you wrote the plugin for.
