@@ -43,7 +43,7 @@ namespace Plugins.Notepad
         private string GetFilename(ApplicationInfo application)
         {
             // notepad title looks like  'filename - Notepad'. We are only after the first part, 'filename'
-            var i = application.WindowTitle.LastIndexOf('-');
+            var i = application.WindowTitle.LastIndexOfAny(new []{ '-', '–' });
             if (i > 0)
             {
                 return application.WindowTitle.Substring(0, i).Trim();
