@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Finkit.ManicTime.Common.Plugins.Timelines.Tags.TagLabel;
 using Finkit.ManicTime.Common.TagSources;
+using Finkit.ManicTime.Shared.Tags.Labels;
 
 namespace TagPlugin
 {
