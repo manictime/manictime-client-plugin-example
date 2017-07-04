@@ -1,10 +1,10 @@
 ﻿{
     "Id": "ManicTime.TagSource.SampleTagPlugin",
-    "Version": "3.7.4.0",
+    "Version": "3.8.2.1",
     "Name": "Tag plugin template",
     "Description": "Sample tag plugin, modify it with your own implementation.",
     "Type": "TagSource",
     "AssemblyName": "TagPlugin.dll",
-    "MinHostVersion": "3.7",
-    "MaxHostVersion": "3.7"
+    "MinHostVersion": "3.8",
+    "MaxHostVersion": "3.8"
 }

@@ -1,10 +1,10 @@
 ﻿{
     "Id": "ManicTime.DocumentTracker.Outlook",
-    "Version": "3.7.4.0",
+    "Version": "3.8.2.1",
     "Type": "DocumentTracker",
     "AssemblyName": "Plugins.Outlook.dll",
     "Name": "Document timeline: Microsoft Outlook",
     "Description": "Get email info from Outlook and display it on Document timeline",
-    "MinHostVersion":  "3.7",
-    "MaxHostVersion": "3.7"
+    "MinHostVersion":  "3.8",
+    "MaxHostVersion": "3.8"
 }
