@@ -1,6 +1,7 @@
 ﻿using Finkit.ManicTime.Shared.Plugins;
 using Finkit.ManicTime.Shared.Plugins.ServiceProviders.Manager;
 using Finkit.ManicTime.Shared.Plugins.ServiceProviders.PluginCommands;
+using TagPlugin.ExportTags;
 using TagPlugins.Core.Commands;
 
 namespace TagPlugin

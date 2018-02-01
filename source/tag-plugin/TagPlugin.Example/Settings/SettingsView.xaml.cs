@@ -1,4 +1,4 @@
-﻿namespace TagPlugin.TemplateSettings
+﻿namespace TagPlugin.Settings
 {
     public partial class SettingsView
     {

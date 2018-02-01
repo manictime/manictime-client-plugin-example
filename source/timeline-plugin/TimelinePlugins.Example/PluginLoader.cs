@@ -1,6 +1,6 @@
 ﻿using Finkit.ManicTime.Client.ActivityTimelines;
 using Finkit.ManicTime.Common.ObjectBuilding;
-using Finkit.ManicTime.Common.Plugins.Timelines.Generic.GenericSingleGroup;
+using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Plugins.Groups;
 using Finkit.ManicTime.Plugins.Timelines;
 using Finkit.ManicTime.Shared;
@@ -33,7 +33,7 @@ namespace TimelinePlugins.Example
                     t => t.TimelineType.GetDefaultDisplayName()));
             
             timelineTypeRegistry
-                .RegisterTimelineEntityFactory(TimelineTypeName, () => new GenericSingleGroupActivity());
+                .RegisterTimelineEntityFactory(TimelineTypeName, () => new SingleGroupActivity(null));
 
             timelineTypeRegistry.RegisterTimelineEntityFactory(TimelineTypeName, () => new Group(null));
             

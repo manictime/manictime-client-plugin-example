@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Finkit.ManicTime.Common.TagSources;
 
-namespace TagPlugin.TemplateSettings
+namespace TagPlugin.Settings
 {
     public class SettingsViewModel : TagSourceSettingsViewModel
     {
@@ -11,9 +11,9 @@ namespace TagPlugin.TemplateSettings
         {
         }
 
-        public override async Task<bool> BeforeOk()
+        public override Task<bool> BeforeOk()
         {
-            return true;
+            return Task.FromResult(true);
         }
 
         public override Task OnOk()

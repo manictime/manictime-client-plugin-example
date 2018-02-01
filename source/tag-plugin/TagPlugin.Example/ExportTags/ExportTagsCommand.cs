@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using Finkit.ManicTime.Client.LocalActivityFetching.Messaging;
+using Finkit.ManicTime.Client.Main.Logic;
 using Finkit.ManicTime.Common;
 using Finkit.ManicTime.Common.TagSources;
-using Finkit.ManicTime.Shared.Plugins.ServiceProviders.PluginCommands;
-using TagPlugins.Core;
-using Finkit.ManicTime.Common.ActivityTimelines.Timelines;
-using Finkit.ManicTime.Plugins.Activities;
-using Finkit.ManicTime.Shared.Logging;
-using Finkit.ManicTime.Client.Main.Logic;
+using Finkit.ManicTime.Common.Timelines;
 using Finkit.ManicTime.Plugins.Timelines.Tags;
 using Finkit.ManicTime.Shared;
+using Finkit.ManicTime.Shared.Logging;
+using Finkit.ManicTime.Shared.Plugins.ServiceProviders.PluginCommands;
+using TagPlugins.Core;
 
-namespace TagPlugin
+namespace TagPlugin.ExportTags
 {
     public class ExportTagsCommand : PluginCommand
     {
         private readonly TagSourceService _tagSourceService;
-        private readonly IActivityRepository _activityRepository;
-        private readonly ITimelineRepository _timelineRepository;
+        private readonly ActivityReaderMessageClient _activityReaderMessageClient;
+        private readonly IViewTimelineCache _viewTimelineCache;
 
         public ExportTagsCommand(
             IEventHub eventHub, 
             TagSourceService tagSourceService,
-            ITimelineRepository timelineRepository,
-            IActivityRepository activityRepository)
+            ActivityReaderMessageClient activityReaderMessageClient,
+            IViewTimelineCache viewTimelineCache)
         {
             _tagSourceService = tagSourceService;
-            _timelineRepository = timelineRepository;
-            _activityRepository = activityRepository;
+            _activityReaderMessageClient = activityReaderMessageClient;
+            _viewTimelineCache = viewTimelineCache;
             eventHub.Subscribe<TagSourceCacheUpdatedEvent>(OnTagSourceCacheUpdated);
             InvokeOnUiThread(SetCanExecute);
         }
@@ -56,32 +58,31 @@ namespace TagPlugin
                     ClientPlugin.Id).Any();
         }
 
-        public override void Execute()
+        public override async void Execute()
         {
             try
             {
                 DateRange range = TagsExporter.GetDateRange();
-                var tagActivities = GetTagActivities(range.From, range.To);
+                var tagActivities = await GetTagActivitiesAsync(range.From, range.To).ConfigureAwait(false);
                 TagsExporter.ExportTags(tagActivities, range);
             }
             catch (Exception ex)
             {
                 ApplicationLog.WriteError(ex);
-                return;
             }
         }
 
-        private TagActivity[] GetTagActivities(int dateFrom, int dateTo)
+        private async Task<TagActivity[]> GetTagActivitiesAsync(int dateFrom, int dateTo)
         {
-            var timeline = _timelineRepository.GetLocalTimeline(TimelineTypeNames.Tags);
-            var activityQuery = new ActivityQuery().WithTimelineId(timeline.TimelineId)
-                    .WithFromDate(dateFrom)
-                    .WithToDate(dateTo);
+            var timeline = _viewTimelineCache.LocalTagTimeline;
+            var activities = await _activityReaderMessageClient.GetActivitiesAsync(
+                timeline,
+                new Date(dateFrom.AsStartDateTime()),
+                new Date(dateTo.AsStartDateTime()),
+                false,
+                CancellationToken.None).ConfigureAwait(false);
 
-            return _activityRepository
-                .Get(activityQuery)
-                .Cast<TagActivity>()
-                .ToArray();
+            return activities.Cast<TagActivity>().ToArray();
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System.Linq;
-using Finkit.ManicTime.Client.Main.Logic;
-using Finkit.ManicTime.Plugins.Timelines.Tags;
+﻿using System;
 using System.IO;
-using Finkit.ManicTime.Shared.Logging;
-using System;
-using Finkit.ManicTime.Common;
+using System.Linq;
 using System.Windows;
+using Finkit.ManicTime.Client.Main.Logic;
+using Finkit.ManicTime.Common;
+using Finkit.ManicTime.Plugins.Timelines.Tags;
+using Finkit.ManicTime.Shared.Logging;
 
-namespace TagPlugin
+namespace TagPlugin.ExportTags
 {
     public class TagsExporter
     {

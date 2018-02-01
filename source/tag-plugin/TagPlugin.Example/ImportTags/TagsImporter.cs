@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Finkit.ManicTime.Common.TagSources;
 using Finkit.ManicTime.Shared.Tags.Labels;
 
-namespace TagPlugin
+namespace TagPlugin.ImportTags
 {
     public class TagsImporter
     {
-        public static async Task<List<TagSourceItem>> GetTags()
+        public static List<TagSourceItem> GetTags()
         {
             var tagSourceItems = new List<TagSourceItem>
             {

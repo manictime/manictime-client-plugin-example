@@ -1,4 +1,5 @@
 ﻿using Finkit.ManicTime.Common.TagSources;
+using TagPlugin.ImportTags;
 
 namespace TagPlugin
 {
@@ -9,9 +10,9 @@ namespace TagPlugin
             //throw new NotImplementedException();
         }
 
-        protected override async void Update()
+        protected override void Update()
         {
-            var tags = await TagsImporter.GetTags();
+            var tags = TagsImporter.GetTags();
             TagSourceCache.Update(InstanceId, tags, null, true);
         }
     }
