@@ -1,4 +1,5 @@
 ﻿using Finkit.ManicTime.Common.TagSources;
+using TagPlugin.Settings;
 
 namespace TagPlugin
 {
@@ -11,7 +12,7 @@ namespace TagPlugin
         protected override BasicTagSourceInstance CreateServerTagSourceInstance(ITagSourceSettings settings,
             string cacheTimestamp)
         {
-            return new SampleTagSourceInstance();
+            return new SampleTagSourceInstance((SampleTagSettings)settings);
         }
     }
 }

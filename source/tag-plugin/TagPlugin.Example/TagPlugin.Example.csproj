@@ -62,6 +62,7 @@
     <Compile Include="ImportTags\TagsImporter.cs" />
     <Compile Include="SampleTagSource.cs" />
     <Compile Include="SampleTagSourceInstance.cs" />
+    <Compile Include="Settings\SampleTagSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PluginIcon.png" />
