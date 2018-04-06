@@ -105,20 +105,20 @@ If it works ok, data should be visible on [Documents timeline](http://support.ma
 Debugging in ManicTime
 ===============
 
-Client plugins (Tag plugin and Timeline plugin) can be sometimes difficult to troubleshoot or simply irritating to test manually.
+Client plugins (Tag plugin and Timeline plugin) can be difficult to troubleshoot or simply irritating to test manually.
 
-One thing you can do about it is to attach project to ManicTime process, which allows you for live debugging.
-We suggest to follow instructions below.
+One thing you can do, is attach debugger to ManicTimeClient.exe process.
 
-1. Switch to Debug
+To do this:
+1. Switch to Debug build.
 2. Open plugin project properties.
-3. Under Build property, "Output" section: edit "Output path:" relative to your database folder. e.g. ...\db folder\Plugins\Packages\ < PackageName >\Lib\
+3. Under Build property, "Output" section: edit "Output path:" relative to ManicTime's database folder. e.g. [ManicTime Database folder]\Plugins\Packages\ < PackageName >\Lib\
 3. Under Debug property, "Start action" section: pick "Start external program:" and set it to ManicTimeClient.exe executable (ManicTime.exe in case of TrackerPlugin). e.g. C:\Program Files (x86)\ManicTime\ManicTimeClient.exe
-4. Make sure ManicTime Client settings option "Settings/General/Keep user interface running when main window closes" is unchecked.
+4. Make sure ManicTime Client settings option "Settings -> General -> Keep user interface running when main window closes" is unchecked.
 5. Make sure ManicTime Client is not running.
 6. Press Start (F5) to start debugging
 
-Starting project in Debug mode now should open instance of ManicTime Client with your project attached and debugging. 
+Starting project in Debug mode should open instance of ManicTime Client with debugger attached. 
 Any breakpoints set in project should now be hit as the plugin code executes.
 
 
