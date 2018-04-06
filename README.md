@@ -112,8 +112,8 @@ We suggest to follow instructions below.
 
 1. Switch to Debug
 2. Open plugin project properties.
-3. Under Build property, "Output" section: edit "Output path:" relative to your database folder. e.g. ...\db folder\Plugins\Packages\< PackageName >\Lib\
-3. Under Debug property, "Start action" section: pick "Start external program:" and set it to ManicTimeClient.exe executable (ManicTime.exe in case of TrackerPlugin) e.g. C:\Program Files (x86)\ManicTime\ManicTimeClient.exe
+3. Under Build property, "Output" section: edit "Output path:" relative to your database folder. e.g. ...\db folder\Plugins\Packages\ < PackageName >\Lib\
+3. Under Debug property, "Start action" section: pick "Start external program:" and set it to ManicTimeClient.exe executable (ManicTime.exe in case of TrackerPlugin). e.g. C:\Program Files (x86)\ManicTime\ManicTimeClient.exe
 4. Make sure ManicTime Client settings option "Settings/General/Keep user interface running when main window closes" is unchecked.
 5. Make sure ManicTime Client is not running.
 6. Press Start (F5) to start debugging
