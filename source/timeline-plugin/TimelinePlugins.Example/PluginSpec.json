@@ -1,11 +1,11 @@
 ﻿{
   "Id": "TimelinePlugins.Example",
-  "Version": "4.0.10.0",
+  "Version": "4.4.8.0",
   "Type": "Timeline",
   "AssemblyName": "TimelinePlugins.Example.dll",
   "Name": "Timeline: Manictime timeline plugin example",
   "Description": "Show data from custom source on its own timeline",
   "HelpUrl": "http://HereIsUrlForPluginHelp",
-  "MinHostVersion": "4",
+  "MinHostVersion": "4.1",
   "MaxHostVersion": "4"
 }

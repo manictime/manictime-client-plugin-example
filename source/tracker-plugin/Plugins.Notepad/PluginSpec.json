@@ -1,10 +1,10 @@
 ﻿{
   "Id": "ManicTime.DocumentTracker.Notepad",
-  "Version": "4.0.10.0",
+  "Version": "4.4.8.0",
   "Type": "DocumentTracker",
   "AssemblyName": "Plugins.Notepad.dll",
   "Name": "Document timeline: Notepad",
   "Description": "Get file name from window title",
-  "MinHostVersion": "4",
+  "MinHostVersion": "4.1",
   "MaxHostVersion": "4"
 }

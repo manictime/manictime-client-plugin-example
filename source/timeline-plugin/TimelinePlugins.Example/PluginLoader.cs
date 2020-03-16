@@ -1,5 +1,5 @@
 ﻿using Finkit.ManicTime.Client.ActivityTimelines;
-using Finkit.ManicTime.Common.ObjectBuilding;
+using Finkit.ManicTime.Shared.ObjectBuilding;
 using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Plugins.Groups;
 using Finkit.ManicTime.Plugins.Timelines;
