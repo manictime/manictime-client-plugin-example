@@ -8,7 +8,6 @@ namespace Plugins.Outlook
     {
         public static string GetTypeName(object comObj)
         {
-
             if (comObj == null)
                 return String.Empty;
 

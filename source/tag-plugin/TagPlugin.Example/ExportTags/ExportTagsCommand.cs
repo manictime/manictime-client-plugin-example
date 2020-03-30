@@ -77,8 +77,8 @@ namespace TagPlugin.ExportTags
             var timeline = _viewTimelineCache.LocalTagTimeline;
             var activities = await _activityReaderMessageClient.GetActivitiesAsync(
                 timeline,
-                new Date(dateFrom.AsStartDateTime()),
-                new Date(dateTo.AsStartDateTime()),
+                new Date(dateFrom.AsStartDateTime(TimeSpan.Zero)),
+                new Date(dateTo.AsStartDateTime(TimeSpan.Zero)),
                 false,
                 CancellationToken.None).ConfigureAwait(false);
 

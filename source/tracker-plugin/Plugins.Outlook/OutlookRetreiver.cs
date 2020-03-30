@@ -28,7 +28,7 @@ namespace Plugins.Outlook
 
             try
             {
-                oApp = Marshal.GetActiveObject("Outlook.Application");
+                oApp = MarshalEx.GetActiveObject("Outlook.Application");
                 activeWindow = oApp.GetType().InvokeMember("ActiveWindow", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, oApp, null);
 
                 if (activeWindow != null)
@@ -45,11 +45,11 @@ namespace Plugins.Outlook
                         var count = selection.GetType().InvokeMember("Count", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, selection, null);
                         if ((int)count == 1)
                         {
-                            var enumerator = (IEnumerator)selection.GetType().InvokeMember("GetEnumerator", BindingFlags.InvokeMethod | BindingFlags.Default | BindingFlags.IgnoreCase, null, selection, null);
-
-                            if (enumerator.MoveNext())
+                            if (selection is IEnumerable enumerable)
                             {
-                                item = enumerator.Current;
+                                var enumerator = enumerable.GetEnumerator();
+                                if (enumerator.MoveNext())
+                                    item = enumerator.Current;
                             }
                         }
                     }
@@ -79,14 +79,16 @@ namespace Plugins.Outlook
                         recipientReferences = new List<object>();
                         var recipientObjects = item.GetType().InvokeMember("Recipients", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, item, null);
 
-                        var enumerator = (IEnumerator)recipientObjects.GetType().InvokeMember("GetEnumerator", BindingFlags.InvokeMethod | BindingFlags.Default | BindingFlags.IgnoreCase, null, recipientObjects, null);
-
-                        if (enumerator.MoveNext())
+                        if (recipientObjects is IEnumerable enumerable)
                         {
-                            var recipient = enumerator.Current;
-                            var address = recipient.GetType().InvokeMember("Address", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, recipient, null);
-                            to += (to == "" ? "" : ", ") + address;
-                            recipientReferences.Add(recipient);
+                            var enumerator = enumerable.GetEnumerator();
+                            if (enumerator.MoveNext())
+                            {
+                                var recipient = enumerator.Current;
+                                var address = recipient.GetType().InvokeMember("Address", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, recipient, null);
+                                to += (to == "" ? "" : ", ") + address;
+                                recipientReferences.Add(recipient);
+                            }
                         }
 
                         return new DocumentInfo

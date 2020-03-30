@@ -1,40 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0D82CADE-7540-4B71-A0C8-C8629D004E46}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Plugins.Outlook</RootNamespace>
-    <AssemblyName>Plugins.Outlook</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <NuGetPackageImportStamp>2aa18c43</NuGetPackageImportStamp>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\..\..\installable-plugin\$(Configuration)\Plugins\Packages\ManicTime.DocumentTracker.Outlook\Lib\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\..\installable-plugin\$(Configuration)\Plugins\Packages\ManicTime.DocumentTracker.Outlook\Lib\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="Finkit.ManicTime.Common">
       <HintPath>..\..\..\libs\Finkit.ManicTime.Common.dll</HintPath>
@@ -48,34 +28,10 @@
     <Reference Include="ManicTime.Client.Tracker.Win">
       <HintPath>..\..\..\libs\ManicTime.Client.Tracker.Win.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Net" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ComHelper.cs" />
-    <Compile Include="OutlookRetreiver.cs" />
-    <Compile Include="PluginRegistrator.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="PluginSpec.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PluginIcon.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)PluginSpec.json" "$(TargetDir)..\PluginSpec.json"
-copy "$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.dll" "$(TargetDir)"
-copy "$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.pdb"
-copy "$(ProjectDir)PluginIcon.png" "$(TargetDir)..\PluginIcon.png"</PostBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(ProjectDir)PluginSpec.json&quot; &quot;$(TargetDir)..\PluginSpec.json&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.dll&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.pdb&quot;&#xD;&#xA;copy &quot;$(ProjectDir)PluginIcon.png&quot; &quot;$(TargetDir)..\PluginIcon.png&quot;" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

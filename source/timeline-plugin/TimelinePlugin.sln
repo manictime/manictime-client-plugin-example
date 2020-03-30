@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelinePlugins.Example", "TimelinePlugins.Example\TimelinePlugins.Example.csproj", "{6C7F1F04-2613-4538-AA39-3F9316A930D7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelinePlugins.Example", "TimelinePlugins.Example\TimelinePlugins.Example.csproj", "{52962E9A-DF0E-433D-869A-7D34DF6686D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,15 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C7F1F04-2613-4538-AA39-3F9316A930D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52962E9A-DF0E-433D-869A-7D34DF6686D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52962E9A-DF0E-433D-869A-7D34DF6686D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52962E9A-DF0E-433D-869A-7D34DF6686D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52962E9A-DF0E-433D-869A-7D34DF6686D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6C7F1F04-2613-4538-AA39-3F9316A930D7} = {83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}
+		{52962E9A-DF0E-433D-869A-7D34DF6686D8} = {83CD5BE7-F324-49CE-AC80-D1ACA91A61E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E1F572A-2C90-4A48-AB46-9970E831DD06}
 	EndGlobalSection
 EndGlobal
