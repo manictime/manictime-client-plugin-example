@@ -24,7 +24,7 @@ This will return a collection of TagActivity objects which you can then export t
 How to use
 ----------
 
-1. Compile the project (source/tracker-plugin).
+1. Compile the project (source/tag-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
 4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
