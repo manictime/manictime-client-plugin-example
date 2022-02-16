@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(ProjectDir)PluginSpec.json&quot; &quot;$(TargetDir)..\PluginSpec.json&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.dll&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.pdb&quot;&#xD;&#xA;copy &quot;$(ProjectDir)PluginIcon.png&quot; &quot;$(TargetDir)..\PluginIcon.png&quot;" />
+    <Exec Command="copy &quot;$(ProjectDir)PluginSpec.json&quot; &quot;$(TargetDir)..\PluginSpec.json&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.dll&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;copy &quot;$(SolutionDir)Plugins.Common\bin\$(ConfigurationName)\Plugins.Common.pdb&quot;&#xD;&#xA;copy &quot;$(ProjectDir)PluginIcon.png&quot; &quot;$(TargetDir)..\PluginIcon.png&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Common.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Shared.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)ManicTime.Client.Tracker.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)ManicTime.Client.Tracker.Win.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Plugins.Common.dll&quot;" />
   </Target>
 
 </Project>
