@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(ProjectDir)PluginSpec.json&quot; &quot;$(TargetDir)..\PluginSpec.json&quot;&#xD;&#xA;copy &quot;$(ProjectDir)PluginIcon.png&quot; &quot;$(TargetDir)..\PluginIcon.png&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Client.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Common.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Shared.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)TagPlugins.Core.dll&quot;&#xD;&#xA;rmdir /S /Q &quot;$(TargetDir)ref" />
+    <Exec Command="copy &quot;$(ProjectDir)PluginSpec.json&quot; &quot;$(TargetDir)..\PluginSpec.json&quot;&#xD;&#xA;copy &quot;$(ProjectDir)PluginIcon.png&quot; &quot;$(TargetDir)..\PluginIcon.png&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Client.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Common.dll&quot;&#xD;&#xA;del &quot;$(TargetDir)Finkit.ManicTime.Shared.dll&quot;&#xD;&#xA;rmdir /S /Q &quot;$(TargetDir)ref" />
   </Target>
 
 </Project>
