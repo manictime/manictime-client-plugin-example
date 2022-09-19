@@ -33,9 +33,9 @@ namespace TimelinePlugins.Example
                     t => t.TimelineType.GetDefaultDisplayName()));
             
             timelineTypeRegistry
-                .RegisterTimelineEntityFactory(TimelineTypeName, () => new SingleGroupActivity(null));
+                .RegisterTimelineEntityFactory(TimelineTypeName, () => new SingleGroupActivity());
 
-            timelineTypeRegistry.RegisterTimelineEntityFactory(TimelineTypeName, () => new Group(null));
+            timelineTypeRegistry.RegisterTimelineEntityFactory(TimelineTypeName, () => new Group());
             
             //register function for loading day view data
             sourceTypeRegistry.RegisterDayViewLoader(SourceTypeName, objectBuilder.Build<PluginDayViewLoader>());
