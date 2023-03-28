@@ -79,7 +79,6 @@ namespace TagPlugin.ExportTags
                 timeline,
                 new Date(dateFrom.AsStartDateTime(TimeSpan.Zero)),
                 new Date(dateTo.AsStartDateTime(TimeSpan.Zero)),
-                false,
                 CancellationToken.None).ConfigureAwait(false);
 
             return activities.Cast<TagActivity>().ToArray();

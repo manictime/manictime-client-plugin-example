@@ -4,8 +4,8 @@
 	<TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <RootNamespace>Plugins.Notepad</RootNamespace>
     <AssemblyName>Plugins.Notepad</AssemblyName>
-
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<UseWPF>true</UseWPF>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
 
