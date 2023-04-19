@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Plugins.Groups;
 using Finkit.ManicTime.Shared.Helpers;
@@ -7,9 +6,9 @@ using Finkit.ManicTime.Shared.Logging;
 
 namespace TimelinePlugins.Example
 {
-    public static class PluginImporter
+    public class PluginImporter
     {
-        public static Activity[] GetData(PluginTimeline timeline, Func<Group> createGroup,
+        public Activity[] GetData(PluginTimeline timeline, Func<Group> createGroup,
             Func<Activity> createActivity, DateTime fromLocalTime, DateTime toLocalTime)
         {
             /*

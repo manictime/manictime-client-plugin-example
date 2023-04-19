@@ -1,4 +1,5 @@
 ﻿using Finkit.ManicTime.Shared.DocumentTracking;
+using Finkit.ManicTime.Shared.Helpers;
 using ManicTime.Client.Tracker.EventTracking.Publishers.ApplicationTracking;
 
 namespace Plugins.Notepad
@@ -34,7 +35,13 @@ namespace Plugins.Notepad
 
         private bool CheckForProcess(ApplicationInfo application)
         {
-            if (application.ProcessName == "notepad")
+            if (application.ProcessName.Equals("Notepad"))
+            {
+                //Notepad in windows 11 is not supported!
+                return false;
+            }
+
+            if (application.ProcessName.Equals("notepad"))
                 return true;
 
             return false;
