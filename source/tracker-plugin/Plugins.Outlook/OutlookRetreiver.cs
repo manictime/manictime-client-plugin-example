@@ -75,26 +75,10 @@ namespace Plugins.Outlook
                     }
                     else
                     {
-                        string to = "";
-                        recipientReferences = new List<object>();
-                        var recipientObjects = item.GetType().InvokeMember("Recipients", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, item, null);
-
-                        if (recipientObjects is IEnumerable enumerable)
-                        {
-                            var enumerator = enumerable.GetEnumerator();
-                            if (enumerator.MoveNext())
-                            {
-                                var recipient = enumerator.Current;
-                                var address = recipient.GetType().InvokeMember("Address", BindingFlags.GetField | BindingFlags.InvokeMethod | BindingFlags.GetProperty, null, recipient, null);
-                                to += (to == "" ? "" : ", ") + address;
-                                recipientReferences.Add(recipient);
-                            }
-                        }
-
                         return new DocumentInfo
                         {
                             DocumentGroupName = "Sending email",
-                            DocumentName = "Email to: " + to + ", Subject: " + subject,
+                            DocumentName = "Subject: " + subject,
                             DocumentType = DocumentTypes.Email
                         };
                     }

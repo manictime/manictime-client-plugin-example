@@ -13,11 +13,15 @@ namespace TimelinePlugins.Example
 {
     public class PluginDayViewLoader : IDayViewLoader
     {
+        private readonly PluginImporter _pluginImporter;
         private readonly ITimelineEntityFactory _timelineEntityFactory;
 
 
-        public PluginDayViewLoader(ITimelineEntityFactory timelineEntityFactory)
+        public PluginDayViewLoader(
+            PluginImporter pluginImporter,
+            ITimelineEntityFactory timelineEntityFactory)
         {
+            _pluginImporter = pluginImporter;
             _timelineEntityFactory = timelineEntityFactory;
         }
 
@@ -34,7 +38,7 @@ namespace TimelinePlugins.Example
                         {
                             onLoadComplete(new[] {timeline}
                                 .ToDictionary(t => t,
-                                    t => new DayViewLoadResult(PluginImporter.GetData((PluginTimeline) t,
+                                    t => new DayViewLoadResult(_pluginImporter.GetData((PluginTimeline) t,
                                         () => _timelineEntityFactory.Create<Group>(timeline),
                                         () => _timelineEntityFactory.Create<Activity>(timeline),
                                         fromLocalTime, toLocalTime),

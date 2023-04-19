@@ -1,5 +1,4 @@
 ﻿using Finkit.ManicTime.Shared.Plugins;
-using ManicTime.Client.Tracker.EventTracking.Publishers.ApplicationTracking;
 
 namespace Plugins.Outlook
 {
@@ -7,9 +6,5 @@ namespace Plugins.Outlook
     [Plugin]
     public class PluginRegistrator
     {
-        public PluginRegistrator(IServiceRegistry serviceRegistry)
-        {
-            serviceRegistry.RegisterInstance<IDocumentRetreiver>(new OutlookRetreiver());
-        }
     }
 }

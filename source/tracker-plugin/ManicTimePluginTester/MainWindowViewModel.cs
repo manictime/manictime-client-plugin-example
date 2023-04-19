@@ -8,17 +8,14 @@ namespace ManicTimePluginsTester
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private TrackActiveApplication _trackActiveApplication;
+        private readonly TrackActiveApplication _trackActiveApplication;
 
         public Dispatcher Dispatcher { get; set; }
 
         private string _trackerOutput;
         public string TrackerOutput
         {
-            get
-            {
-                return _trackerOutput;
-            }
+            get => _trackerOutput;
             set
             {
                 if (_trackerOutput == value)
@@ -31,10 +28,7 @@ namespace ManicTimePluginsTester
         private string _debugOutput;
         public string DebugOutput
         {
-            get
-            {
-                return _debugOutput;
-            }
+            get => _debugOutput;
             set
             {
                 if (_debugOutput == value)
