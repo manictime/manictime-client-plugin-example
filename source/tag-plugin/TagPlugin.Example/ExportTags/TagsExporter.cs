@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Finkit.ManicTime.Client.Main.Logic;
+using Finkit.ManicTime.Client.Main.Views;
 using Finkit.ManicTime.Common;
 using Finkit.ManicTime.Plugins.Timelines.Tags;
 using Finkit.ManicTime.Shared.Logging;
@@ -31,6 +32,12 @@ public class TagsExporter
     */
     public void ExportTags(TagActivity[] allTagActivities, DateRange range)
     {
+        MessageButton pressedBtn = Application.Current.Dispatcher.Invoke(() =>
+                ViewHelper.ShowViewModelWindow<ExportTagsPromptViewModel>(Application.Current.MainWindow));
+
+        if (pressedBtn != MessageButtons.Yes)
+            return;
+
         var pluginTags = allTagActivities
             .Where(ta => ta.Groups.Select(g => g.DisplayKey.ToLower()).Contains(ClientPlugin.HiddenTagLabel.ToLower()));
 
