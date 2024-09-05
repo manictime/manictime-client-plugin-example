@@ -13,12 +13,14 @@ namespace TagPlugin.ImportTags
                 new TagSourceItem
                 {
                     Tags = new[] { "Demo Project 1", "Demo Activity 1", ClientPlugin.HiddenTagLabel },
-                    Notes = "Note"
+                    Notes = "Note",
+                    IsApproved = false
                 },
                 new TagSourceItem
                 {
                     Tags = new[] { "Demo Project 2", "Demo Activity 2", TagLabels.Billable, ClientPlugin.HiddenTagLabel },
-                    Notes = "Note 2"
+                    Notes = "Note 2",
+                    IsApproved = false
                 }
             };
 
