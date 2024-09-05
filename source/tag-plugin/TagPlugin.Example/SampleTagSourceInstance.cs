@@ -25,14 +25,15 @@ namespace TagPlugin
             var tags = TagsImporter.GetTags().ToArray();
             if (_customNotes != null)
             {
-                tags = tags.Select(x =>
+                tags = tags.Select(x => new TagSourceItem
                 {
-                    x.Notes = _customNotes;
-                    return x;
+                    Tags = x.Tags,
+                    IsApproved = x.IsApproved,
+                    Notes = _customNotes
                 }).ToArray();
             }
 
-            TagSourceCache.Update(InstanceId, tags, null, true);
+            TagSourceCache.Update(InstanceId, tags, null, true, false);
         }
     }
 }
