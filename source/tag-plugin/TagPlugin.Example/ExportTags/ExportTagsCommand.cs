@@ -118,15 +118,22 @@ public class ExportTagsCommand : PluginCommand
     private async Task<TagActivity[]> GetTagActivitiesAsync(int dateFrom, int dateTo)
     {
         var timeline = _viewTimelineCache.LocalTagTimeline;
-        var activities = await _activityReaderMessageClient.GetActivitiesAsync(
-            timeline,
-            new Date(dateFrom.AsStartDateTime(TimeSpan.Zero)),
-            new Date(dateTo.AsStartDateTime(TimeSpan.Zero)),
-            CancellationToken.None).ConfigureAwait(false);
+
+        SearchActivityFetcherQuery searchQuery = new(
+            [timeline.TimelineKey],
+            dateFrom, dateTo,
+            _appSettings.GetSnapshot().GetDayStartShift(),
+            null,
+            false);
+
+        ExportActivityFilter activityFilter = new ExportActivityFilter(_mtGrammarWrapper);
+        activityFilter.SetQueryText($"label:{ClientPlugin.HiddenTagLabel.ToLower()}");
+        Activity[] activities = await _searchActivityFetcher
+            .GetActivities(timeline, searchQuery, activityFilter, CancellationToken.None)
+            .ToArrayAsync();
 
         return activities
             .Cast<TagActivity>()
-            .Where(ta => ta.Groups.Select(g => g.DisplayKey.ToLower()).Contains(ClientPlugin.HiddenTagLabel.ToLower()))
             .ToArray();
     }
 
