@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using Finkit.ManicTime.Client.Main.Logic;
 using Finkit.ManicTime.Common;
-using Finkit.ManicTime.Plugins.Timelines.Tags;
+using Finkit.ManicTime.Plugins.Activities;
 using Finkit.ManicTime.Shared.Logging;
 
 namespace TagPlugin.ExportTags;
@@ -22,19 +22,9 @@ public class TagsExporter
         return new DateRange(DateTimeHelper.FromUnshiftedDateTime(from), DateTimeHelper.FromUnshiftedDateTime(to));
     }
 
-    /*
-        Tag activities for the selected date range. All activities are returned. 
-        We usually append a hidden tag (the ones preceded with a colon (:)) so we know which plugin was responsible for them.
-        Below we filter the list to get only tags from this plugin. You can easily just skip that and process all of them.
-        
-        In this sample we only get the tags from this plugin, then save them to a local file.
-    */
-    public void ExportTags(TagActivity[] allTagActivities, DateRange range)
+    public void ExportTags(MultipleGroupActivity[] allTagActivities, DateRange range)
     {
-        var pluginTags = allTagActivities
-            .Where(ta => ta.Groups.Select(g => g.DisplayKey.ToLower()).Contains(ClientPlugin.HiddenTagLabel.ToLower()));
-
-        var rows = pluginTags.Select(t => t.DisplayName + "\t" + t.StartTime + "\t" + t.EndTime);
+        var rows = allTagActivities.Select(t => t.DisplayName + "\t" + t.StartTime + "\t" + t.EndTime);
         var exportString = rows.Aggregate("", (sum, row) => sum + (sum == "" ? "" : "\n") + row);
 
         if (!Directory.Exists("c:\\ManicTimeData"))
