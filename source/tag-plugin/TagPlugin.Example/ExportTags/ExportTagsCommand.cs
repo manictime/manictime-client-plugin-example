@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using Finkit.ManicTime.Client.LocalActivityFetching.Messaging;
 using Finkit.ManicTime.Client.Main.Logic;
 using Finkit.ManicTime.Client.Main.Views;
 using Finkit.ManicTime.Client.Views.SearchView.SearchUserControl;
@@ -27,7 +26,6 @@ public class ExportTagsCommand : PluginCommand
 {
     private readonly GlobalAppSettings _appSettings;
     private readonly TagSourceService _tagSourceService;
-    private readonly ActivityReaderMessageClient _activityReaderMessageClient;
     private readonly IViewTimelineCache _viewTimelineCache;
     private readonly TagsExporter _tagsExporter;
     private readonly SearchActivityFetcher _searchActivityFetcher;
@@ -38,7 +36,6 @@ public class ExportTagsCommand : PluginCommand
         GlobalAppSettings appSettings,
         IEventHub eventHub, 
         TagSourceService tagSourceService,
-        ActivityReaderMessageClient activityReaderMessageClient,
         IViewTimelineCache viewTimelineCache,
         TagsExporter tagsExporter,
         SearchActivityFetcher searchActivityFetcher,
@@ -47,7 +44,6 @@ public class ExportTagsCommand : PluginCommand
     {
         _appSettings = appSettings;
         _tagSourceService = tagSourceService;
-        _activityReaderMessageClient = activityReaderMessageClient;
         _viewTimelineCache = viewTimelineCache;
         _tagsExporter = tagsExporter;
         _searchActivityFetcher = searchActivityFetcher;
