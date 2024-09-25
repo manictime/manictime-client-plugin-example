@@ -35,13 +35,7 @@ namespace Plugins.Notepad
 
         private bool CheckForProcess(ApplicationInfo application)
         {
-            if (application.ProcessName.Equals("Notepad"))
-            {
-                //Notepad in windows 11 is not supported!
-                return false;
-            }
-
-            if (application.ProcessName.Equals("notepad"))
+            if (application.ProcessName.EqualsIgnoringCase("notepad"))
                 return true;
 
             return false;
