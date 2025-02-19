@@ -15,8 +15,8 @@
                 <RadioButton Content="Tags" GroupName="ExportType" IsChecked="{Binding ExportTags}"/>
                 <RadioButton Content="AutoTags" GroupName="ExportType" Margin="0 5 0 0" IsEnabled="{Binding AutoTagTimelineExists}"/>
             </StackPanel>
-            <DockPanel Grid.Row="2"  Style="{StaticResource BottomCommandButtonsExternalWindow}">
-                <Button DockPanel.Dock="Right" IsCancel="True" Command="{Binding CancelCommand}" Content="Cancel" />
+            <DockPanel Grid.Row="2" Style="{StaticResource BottomCommandButtons}">
+                <Button DockPanel.Dock="Right" IsCancel="True" Command="{Binding CancelCommand}" Content="Cancel" Margin="{StaticResource ControlMarginLeft}" />
                 <Button DockPanel.Dock="Right" Command="{Binding OkCommand}" Content="Ok" />
             </DockPanel>
         </Grid>
