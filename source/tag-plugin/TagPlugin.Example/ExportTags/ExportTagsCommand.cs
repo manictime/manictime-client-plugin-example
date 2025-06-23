@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Finkit.ManicTime.Client.Main.Logic;
 using Finkit.ManicTime.Client.Main.Views;
+using Finkit.ManicTime.Client.Views.SearchView;
 using Finkit.ManicTime.Client.Views.SearchView.SearchUserControl;
 using Finkit.ManicTime.Common;
 using Finkit.ManicTime.Common.AutoTags;
@@ -125,7 +126,7 @@ public class ExportTagsCommand : PluginCommand
         ExportActivityFilter activityFilter = new ExportActivityFilter(_mtGrammarWrapper);
         activityFilter.SetQueryText($"label:{ClientPlugin.HiddenTagLabel.ToLower()}");
         Activity[] activities = await _searchActivityFetcher
-            .GetActivities(timeline, searchQuery, activityFilter, CancellationToken.None)
+            .GetActivities(SearchTimelineOptions.Create(timeline), searchQuery, activityFilter, CancellationToken.None)
             .ToArrayAsync();
 
         return activities
@@ -153,7 +154,7 @@ public class ExportTagsCommand : PluginCommand
 
         ExportActivityFilter activityFilter = new ExportActivityFilter(_mtGrammarWrapper);
         Activity[] activities = await _searchActivityFetcher
-            .GetActivities(timeline, searchQuery, activityFilter, CancellationToken.None)
+            .GetActivities(SearchTimelineOptions.Create(timeline), searchQuery, activityFilter, CancellationToken.None)
             .ToArrayAsync();
 
         return activities.Cast<AutoTagActivity>().ToArray();
