@@ -7,8 +7,8 @@ name from Fork", "track which file is open in Lightroom", "show the current conv
 Claude app on my timeline" — follow the instructions in
 [skills/manictime-plugin/SKILL.md](skills/manictime-plugin/SKILL.md). It contains the full
 workflow (probe the app, generate a plugin from a template, test it live, install it into
-ManicTime), reference documentation for the plugin contract and packaging, a macOS accessibility
-probe tool, and working plugin templates.
+ManicTime), reference documentation for the plugin contract and packaging, probe tools for
+Windows (COM, UI Automation) and macOS (accessibility), and working plugin templates.
 
 Repository layout:
 
