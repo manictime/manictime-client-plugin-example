@@ -1,8 +1,14 @@
-// TEMPLATE — working example: reads the current conversation title from the Claude desktop
-// app. Per-app parts to change: the namespace/class names, the process-name check, the anchor
-// predicate (here: landmark region "Primary pane"), the target predicate (here: first AXButton
-// with a non-reject title), the reject list, and the DocumentInfo mapping at the end.
-// Everything else (wake, caching, ownership, budgets) is the reusable machinery — keep it.
+// TEMPLATE — the reusable macOS AX machinery: the Electron wake, walking with a node/depth
+// budget, caching the anchor element instead of re-walking every poll, and CoreFoundation
+// ownership (retain what you keep, release what you copy).
+//
+// The anchor below — an AXLandmarkRegion described as "Primary pane", with the title as the
+// first AXButton inside it — is what scripts/probe-ax showed for the Claude desktop app on
+// 2026-08-27. It is an EXAMPLE, not a fact: app UIs change, and a dead anchor returns null,
+// which looks exactly like "this app exposes nothing". Derive your anchor from your own probe
+// dump first. If the dump disagrees with this file, the machinery is still right and only the
+// predicates change: the process-name check, the anchor predicate, the target predicate, the
+// reject list, and the DocumentInfo mapping at the end.
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -32,6 +38,7 @@ public class ClaudeTitleRetreiver : IDocumentRetreiver
     private const uint Utf8 = 0x08000100;
     private const int MaxNodes = 2000;
     private const int MaxDepth = 40;
+    private const int MaxCachedProcesses = 4;
 
     [DllImport(Ax)] private static extern IntPtr AXUIElementCreateApplication(int pid);
     [DllImport(Ax)] private static extern int AXUIElementCopyAttributeValue(IntPtr element, IntPtr attr, ref IntPtr value);
@@ -141,6 +148,19 @@ public class ClaudeTitleRetreiver : IDocumentRetreiver
                 // so forget the wake and re-send it on the next call.
                 _wokenProcessIds.Remove(processId);
                 return null;
+            }
+            // Entries for other pids belong to instances that have quit (or been replaced after a
+            // restart) — without this the retained elements would pile up, one per restart. Done
+            // here rather than every call: we are already re-walking, and a couple of live
+            // instances of the same app keep their caches.
+            if (_primaryPaneByProcessId.Count >= MaxCachedProcesses)
+            {
+                foreach (int stale in _primaryPaneByProcessId.Keys.Where(id => id != processId).ToArray())
+                {
+                    CFRelease(_primaryPaneByProcessId[stale]);
+                    _primaryPaneByProcessId.Remove(stale);
+                    _wokenProcessIds.Remove(stale);
+                }
             }
             _primaryPaneByProcessId[processId] = primaryPane;
         }

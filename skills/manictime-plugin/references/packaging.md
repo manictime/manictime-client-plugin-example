@@ -13,6 +13,8 @@ Custom.DocumentTracker.<App>/
 
 ## PluginSpec.json
 
+Copy this and change the values; it is the only spec example in the skill.
+
 ```json
 {
   "Id": "Custom.DocumentTracker.Fork",

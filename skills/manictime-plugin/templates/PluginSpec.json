@@ -1,8 +1,0 @@
-{
-  "Id": "Custom.DocumentTracker.AppName",
-  "Version": "1.0.0.0",
-  "Type": "DocumentTracker",
-  "AssemblyName": "AppPlugin.dll",
-  "Name": "Document timeline: AppName",
-  "MinHostVersion": "2025.2"
-}

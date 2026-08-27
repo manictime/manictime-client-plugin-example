@@ -21,7 +21,12 @@ dotnet run --project skills/manictime-plugin/scripts/probe-ax -- <pid> [maxDepth
   AXButton inside"). Labels and titles change with app updates and UI language; structure
   survives. Keep a reject list for placeholder titles ("New chat", the app name).
 
-## Rules for the plugin code (see templates/AxTreePlugin.cs — start from it, don't write from scratch)
+## Rules for the plugin code
+
+Once you have your anchor from the dump, take the machinery from `templates/AxTreePlugin.cs` — the
+wake, the bounded walk, the anchor cache and the retain/release pairing. Its anchor is a dated
+example from one app; yours comes from your own probe. The P/Invoke signatures you need are also in
+`scripts/probe-ax/Program.cs`, which you have just run.
 
 1. **Electron wake**: Electron exposes a stub AX tree until an assistive client announces itself.
    On the first call for a process, set the app-level attribute `AXManualAccessibility` to true

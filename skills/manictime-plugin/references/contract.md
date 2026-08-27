@@ -48,6 +48,19 @@ tester's output line before writing the process-name check.
 Typical mappings: website → group=host, name=URL; file → group=filename, name=full path;
 chat → group=app or contact, name=conversation.
 
+## Resolving a name to a path
+
+When the window title carries only a document *name* but the user wants the full path, the app's
+own metadata usually closes the gap: a vault/workspace registry, a recent-files list or a sqlite db
+under `~/Library/Application Support/<app>` or `%APPDATA%\<app>`. Parse the name from the title,
+look the base folder up in the app's config, then find the file under it. Cache the result — the
+lookup is disk work and `GetDocument` runs on every poll.
+
+Two caveats: the tracker process needs read access to those folders (on macOS iCloud Drive,
+Documents and Desktop are permission-gated, so the plugin can work in your terminal and return
+nothing after install — see testing.md), and the answer is inference, so prefer the app's real API
+when it has one.
+
 ## Hard rules
 
 - **Be fast; never block.** Document retrieval is shared across all apps and runs one at a

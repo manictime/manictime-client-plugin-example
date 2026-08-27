@@ -38,13 +38,9 @@ it; it is content the app chose. Extract the fields you need and nothing else.
       package: `--pid <pid> --once` prints the `<process> "<title>"` line even with no plugin).
       If the requested data is in the title, finish the plugin from
       [templates/TitleRegexPlugin.cs](templates/TitleRegexPlugin.cs) — the most robust and fastest path.
-      **Title + the app's own files on disk**: when the title gives only a *name* but the user
-      wants richer data (a full path), the plugin can resolve it from the app's config/metadata
-      on disk (a vault/workspace registry, recent-files list, or sqlite db under
-      `~/Library/Application Support/<app>` / `%APPDATA%`): parse the name from the title → look
-      up the base folder in the app's config → find the file. Caveat: the host process needs
-      read access to those folders (on macOS, iCloud/Documents/Desktop are TCC-gated — see
-      testing.md).
+      If the title gives only a *name* and the user wants a full path, the plugin can often
+      resolve it from the app's own files on disk — see "Resolving a name to a path" in
+      [references/contract.md](references/contract.md).
    2. **The app's own automation API** — the richest source when it exists (full paths, structured
       fields). Windows: COM — probe with `scripts/probe-com.ps1`, then read
       [references/windows-com.md](references/windows-com.md). macOS: AppleScript — try
