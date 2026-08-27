@@ -6,6 +6,8 @@ An example of how to create custom ManicTime client plugins. ManicTime client su
 - Timeline plugin
 - Tracker plugin
 
+Tracker plugins can also be generated for you by an AI coding agent — see "Generating a plugin with an AI agent" below.
+
 Note: on macOS/Linux, `dotnet build ManicTimePluginTester.sln` fails because the Notepad and Outlook sample plugins target Windows; build the cross-platform tester on its own with `dotnet build source/tracker-plugin/ManicTimePluginTester.Cli`.
 
 Tag Plugin
@@ -113,6 +115,22 @@ How to use
 5. Run ManicTime
 
 If it works ok, data should be visible on [Documents timeline](http://support.manictime.com/knowledgebase/articles/686226-document-timeline), when you use the application you wrote the plugin for.
+
+
+Smoke test
+----------
+
+`./smoke-test.sh` builds the tester, the probe and both plugin templates, then runs the tester and checks the results (exit codes, argument and package validation, JSON output). Run it after changing any of them, or after generating a plugin, to confirm nothing is broken. `--no-build` skips those builds and only runs the tester checks.
+
+Generating a plugin with an AI agent
+----------
+
+This repository includes agent instructions (`AGENTS.md`) and a plugin-generation skill (`skills/manictime-plugin/`) that work with any coding agent — Claude Code, Codex, Cursor, Gemini CLI... Open the cloned repository in your agent and ask, for example:
+
+    get the repository name from Fork onto my ManicTime timeline
+    track which conversation is open in the Claude app
+
+The agent probes the target application (window title, scripting API, accessibility tree), generates a standalone plugin package, verifies it live with ManicTimePluginTester.Cli, and installs it into your ManicTime.
 
 
 
