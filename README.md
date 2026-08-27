@@ -27,7 +27,7 @@ How to use
 1. Compile the project (source/tag-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
 ....\db folder\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\...
 5. Run ManicTime
 
@@ -59,8 +59,8 @@ How to use
 1. Compile the project (source/timeline-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
-....\db folder\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\...
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
+....\db folder\Plugins\Packages\TimelinePlugins.Example\...
 5. Run ManicTime
 
 ###For ManicTime timeline plugins:
@@ -94,7 +94,7 @@ How to use
 1. Compile the project (source/tracker-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
 ....\db folder\Plugins\Packages\ManicTime.DocumentTracker.Notepad\...
 5. Run ManicTime
 
