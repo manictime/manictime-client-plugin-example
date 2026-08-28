@@ -6,6 +6,10 @@ An example of how to create custom ManicTime client plugins. ManicTime client su
 - Timeline plugin
 - Tracker plugin
 
+Tracker plugins can also be generated for you by an AI coding agent — see "Generating a plugin with an AI agent" below.
+
+Note: on macOS/Linux, `dotnet build ManicTimePluginTester.sln` fails because the Notepad and Outlook sample plugins target Windows; build the cross-platform tester on its own with `dotnet build source/tracker-plugin/ManicTimePluginTester.Cli`.
+
 Tag Plugin
 ====================
 
@@ -27,7 +31,7 @@ How to use
 1. Compile the project (source/tag-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
 ....\db folder\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\...
 5. Run ManicTime
 
@@ -59,8 +63,8 @@ How to use
 1. Compile the project (source/timeline-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
-....\db folder\Plugins\Packages\ManicTime.TagSource.SampleTagPlugin\...
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
+....\db folder\Plugins\Packages\TimelinePlugins.Example\...
 5. Run ManicTime
 
 ###For ManicTime timeline plugins:
@@ -86,7 +90,19 @@ Tracker plugin
 Tracker plugin fills Documents timeline. When ManicTime detects an application, it gets the general data like process name, window title... Some applications also contain other data like URLs, open files, email sender... To get this extra data, ManicTime relies on plugins. When an application is detected, ManicTime will go through a list of plugins and try to get more data. We provide plugins for popular applications, like MS Office products and browsers, but you can write the plugin for any app you use.
 
 In the sample we included two plugins, Notepad plugin and Outlook plugin. We suggest you take a look at Notepad plugin, it is simpler to understand. The important code is in file NotepadFileRetreiver.cs. 
-You don't need to look at PluginTester project, its there to help you debug your plugin. If you will create your own plugin (not modify an existing one), add it to the list of plugins in file TrackActiveApplication.cs.
+You don't need to look at ManicTimePluginTester.Cli project, it's there to help you test your plugin (see below).
+
+Testing without ManicTime (command line)
+----------
+
+ManicTimePluginTester.Cli tests a built plugin package without installing it into ManicTime and without changing any tester code. It loads the package the way ManicTime does (PluginSpec.json validation, IServiceConfigurator, document retrievers in call order), prints which plugins and retrievers were loaded, then watches the foreground window and prints the result of every retriever, marking the one ManicTime would use. It is a close mirror of ManicTime's behavior (the installed client is the final word) and flags the mistakes ManicTime would silently ignore: an empty DocumentGroupName (result is discarded), a package folder whose name doesn't match the PluginSpec Id, and retrievers too slow for ManicTime's ~1 second polling cadence.
+
+    # from the repository root (forward slashes work on Windows too):
+    dotnet run --project source/tracker-plugin/ManicTimePluginTester.Cli -- installable-plugin/Debug/Plugins/Packages
+
+The `installable-plugin/` folder appears after you build the sample plugins (Windows only — the sample csprojs target Windows). On macOS/Linux point the tester at your own plugin package folder instead.
+
+Point it at a package folder, a Packages root, or a plain folder with plugin dlls. Options: `--pid <id>` (watch a specific process instead of the foreground window — handy for testing without switching focus), `--interval <seconds>` (default 2), `--all` (print every poll, not only changes), `--json` (machine-readable output), `--once` (single sample). Switch to your target app, change documents, and watch the output.
 
 How to use
 ----------
@@ -94,11 +110,27 @@ How to use
 1. Compile the project (source/tracker-plugin).
 2. After you compile it, there should be a folder in repository root - installable-plugin/< BuildConfiguration >
 3. Go to ManicTime, Settings -> Advanced -> Open db folder
-4. Copy folder installable-plugin/< BuildConfiguration >/Plugin to database folder, so that in the database folder it looks like
+4. Copy folder installable-plugin/< BuildConfiguration >/Plugins to database folder, so that in the database folder it looks like
 ....\db folder\Plugins\Packages\ManicTime.DocumentTracker.Notepad\...
 5. Run ManicTime
 
 If it works ok, data should be visible on [Documents timeline](http://support.manictime.com/knowledgebase/articles/686226-document-timeline), when you use the application you wrote the plugin for.
+
+
+Smoke test
+----------
+
+`./smoke-test.sh` builds the tester, the probe and both plugin templates, then runs the tester and checks the results (exit codes, argument and package validation, JSON output). Run it after changing any of them, or after generating a plugin, to confirm nothing is broken. `--no-build` skips those builds and only runs the tester checks.
+
+Generating a plugin with an AI agent
+----------
+
+This repository includes agent instructions (`AGENTS.md`) and a plugin-generation skill (`skills/manictime-plugin/`) that work with any coding agent — Claude Code, Codex, Cursor, Gemini CLI... Open the cloned repository in your agent and ask, for example:
+
+    get the repository name from Fork onto my ManicTime timeline
+    track which conversation is open in the Claude app
+
+The agent probes the target application (window title, scripting API, accessibility tree), generates a standalone plugin package, verifies it live with ManicTimePluginTester.Cli, and installs it into your ManicTime.
 
 
 
