@@ -14,7 +14,15 @@ Everything runs against this repository: contract DLLs are in `libs/`, the test 
 
 ## Prerequisites (check before starting)
 
-- .NET 10 SDK (`dotnet --version`) — offer install instructions if missing.
+- .NET 10 SDK — check `dotnet --list-sdks` shows a **10.x** entry; `dotnet --version` alone hides
+  the common case, an older SDK, which fails later at build time with
+  `NETSDK1045: The current .NET SDK does not support targeting .NET 10.0`. If it is missing or too
+  old, give the user the command and let them run it — installing an SDK changes their machine and
+  usually needs admin rights: Windows `winget install Microsoft.DotNet.SDK.10`, otherwise
+  <https://dotnet.microsoft.com/download/dotnet/10.0>.
+  Two routes need no SDK at all, so a refusal to install one is not the end of the request: on
+  Windows a title-only case can be done with a CustomTitle rule (step 2.1), and an app-side plugin
+  over the socket (step 2.4) is JavaScript.
 - ManicTime client 2025.2+ installed (plugin is installed into its data folder at the end).
 - The target application running with representative content visible.
 - macOS: Accessibility permission is requested on the first probe/test run.
@@ -38,6 +46,11 @@ it; it is content the app chose. Extract the fields you need and nothing else.
       package: `--pid <pid> --once` prints the `<process> "<title>"` line even with no plugin).
       If the requested data is in the title, finish the plugin from
       [templates/TitleRegexPlugin.cs](templates/TitleRegexPlugin.cs) — the most robust and fastest path.
+      **On Windows, prefer a rule over a plugin here**: ManicTime's built-in CustomTitle plugin
+      takes title regexes from a text file, so there is nothing to build or install and it is
+      re-read on save — and it resolves file names to full paths from the app's jump list. See
+      [references/windows-custom-title.md](references/windows-custom-title.md). Write a plugin
+      instead when the rule can't express it, or the user is not on Windows.
       If the title gives only a *name* and the user wants a full path, the plugin can often
       resolve it from the app's own files on disk — see "Resolving a name to a path" in
       [references/contract.md](references/contract.md).
@@ -68,7 +81,11 @@ it; it is content the app chose. Extract the fields you need and nothing else.
    more of the app's data than that — and tell the user this data (e.g. full file paths) lands
    on the Documents timeline and may sync to a ManicTime Server / team account.
 
-4. **Generate** from the matching template in [templates/](templates/). Create the source project at
+4. **Generate.** If you took the CustomTitle route there is no project and no package: write the
+   rule, then go straight to verifying it on the Documents timeline
+   ([references/windows-custom-title.md](references/windows-custom-title.md)) — steps 5 and 6
+   below are about compiled plugins.
+   Otherwise, start from the matching template in [templates/](templates/). Create the source project at
    `<repo root>/myplugins/<App>Plugin/` (the template csproj's `..\..\libs` paths are correct
    from there). The build output to install is a standalone package folder:
    `Custom.DocumentTracker.<App>/` with `PluginSpec.json` + `Lib/<dll>`. Rules in
